@@ -21,6 +21,7 @@ Probably some parts are overkill but some challenges tackled are:
 # Open questions
 - The scanning station could lose internet connection or have another fault and should retry
 - Be able to observe what the scanning station is doing
+- Continuous delivery pipeline (use of gitOps?)
 
 ## Interaction diagram
 ```mermaid
