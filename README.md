@@ -38,7 +38,7 @@ graph LR
 ```
 
 ## Deployments
-
+Using kustomize in https://github.com/mvandermade/made-duper-kubernetes
 ```mermaid
 graph TD
   made-duper-kubernetes --> kustomize
@@ -54,6 +54,13 @@ graph TD
   service --> made-funicular-postzegel-backend-kotlin
 ```
 
+Using helm: https://github.com/mverleg/postzegel-helm (only for testing the reporter part)
+```mermaid
+graph TD
+  postzegel-helm --> helm
+  helm --> reporter
+```
+
 ## Repos
 - https://github.com/mvandermade/made-duper-kubernetes
 - https://github.com/mvandermade/made-funicular-postzegel-reporter-kotlin
@@ -61,3 +68,6 @@ graph TD
 - https://github.com/mvandermade/made-funicular-postzegel-reporter-rs-gtk
 - https://github.com/mvandermade/made-funicular-postzegel-reporter-compose
 - https://github.com/mvandermade/made-funicular-postzegel-reporter-client
+
+# More repos
+- https://github.com/mverleg/postzegel-helm
