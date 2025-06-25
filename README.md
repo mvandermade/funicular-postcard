@@ -1,6 +1,8 @@
 # made-funicular-postzegel
 An overview of the umbrella of funicular postzegel. Or stamp in English.
 
+![colourful logo](postzegel.png "colourful logo")
+
 The goal of the project is to understand how things work.
 Not a real purpose, other than I found a fascination around the "new" stamp codes you can buy at PostNL.
 I just wanted to know how to design such a system from the ground up, which I did. I therefore do not actively do PR's, feel free to fork!
