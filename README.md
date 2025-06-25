@@ -23,6 +23,9 @@ Probably some parts are overkill but some challenges tackled are:
 - Be able to observe what the scanning station is doing
 - Continuous delivery pipeline (use of gitOps?)
 
+# Note to self
+- Not all clients in the distribution-center subgraph are ready just yet... and are still private repo's for now!
+
 ## Interaction diagram
 ```mermaid
 graph LR
@@ -32,6 +35,7 @@ graph LR
   made-funicular-postzegel-reporter-client -->|Websocket| made-funicular-postzegel-reporter-kotlin
   made-funicular-postzegel-reporter-compose -->|Websocket| made-funicular-postzegel-reporter-kotlin
   made-funicular-postzegel-reporter-rs-gtk -->|Websocket| made-funicular-postzegel-reporter-kotlin
+  made-funicular-postzegel-reporter-swift-macos --> |Websocket| made-funicular-postzegel-reporter-kotlin
   mail-processor --> |Code-scanner| made-funicular-postzegel-reporter-kotlin
   end
   customer --> |Postage| mail-processor
