@@ -31,14 +31,14 @@ Probably some parts are overkill but some challenges tackled are:
 ## Interaction diagram
 ```mermaid
 graph LR
-  customer -->|REST| made-funicular-postzegel-backend-kotlin
-  made-funicular-postzegel-reporter-kotlin -->|REST| made-funicular-postzegel-backend-kotlin
+  customer -->|REST| fp-backend-kotlin
+  fp-reporter-kotlin -->|REST| fp-backend-kotlin
   subgraph distribution-center
-  made-funicular-postzegel-reporter-client -->|Websocket| made-funicular-postzegel-reporter-kotlin
-  made-funicular-postzegel-reporter-compose -->|Websocket| made-funicular-postzegel-reporter-kotlin
-  made-funicular-postzegel-reporter-rs-gtk -->|Websocket| made-funicular-postzegel-reporter-kotlin
-  made-funicular-postzegel-reporter-swift-macos --> |Websocket| made-funicular-postzegel-reporter-kotlin
-  mail-processor --> |Code-scanner| made-funicular-postzegel-reporter-kotlin
+  fp-reporter-client -->|Websocket| fp-reporter-kotlin
+  fp-reporter-compose -->|Websocket| fp-reporter-kotlin
+  fp-reporter-rs-gtk -->|Websocket| fp-reporter-kotlin
+  fp-reporter-swift-macos --> |Websocket| fp-reporter-kotlin
+  mail-processor --> |Code-scanner| fp-reporter-kotlin
   end
   customer --> |Postage| mail-processor
 ```
@@ -48,16 +48,16 @@ Using kustomize in https://github.com/mvandermade/made-duper-kubernetes
 ```mermaid
 graph TD
   made-duper-kubernetes --> kustomize
-  kustomize --> made-funicular-postzegel-backend-kotlin
-  made-funicular-postzegel-backend-kotlin --> postgres-backend
+  kustomize --> fp-backend-kotlin
+  fp-backend-kotlin --> postgres-backend
   postgres-backend --> persistent-volume
-  kustomize --> made-funicular-postzegel-reporter-kotlin
-  made-funicular-postzegel-reporter-kotlin --> postgres-reporter
+  kustomize --> fp-reporter-kotlin
+  fp-reporter-kotlin --> postgres-reporter
   postgres-reporter --> persistent-volume
-  made-funicular-postzegel-reporter-kotlin --> kafka-reporter
+  fp-reporter-kotlin --> kafka-reporter
   kafka-reporter --> persistent-volume
-  made-funicular-postzegel-reporter-kotlin --> service
-  service --> made-funicular-postzegel-backend-kotlin
+  fp-reporter-kotlin --> service
+  service --> fp-backend-kotlin
 ```
 
 Using helm: https://github.com/mverleg/postzegel-helm (only for testing the reporter part)
