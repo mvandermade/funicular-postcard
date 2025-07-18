@@ -1,4 +1,4 @@
-# funicular-postzegel (fp)
+# funicular-postzegel (fup)
 An overview of the umbrella of funicular postzegel. Or stamp in English.
 
 ![colourful logo](postzegel.png "colourful logo")
@@ -69,11 +69,11 @@ graph TD
 
 ## Repos
 - https://github.com/mvandermade/made-duper-kubernetes
-- https://github.com/mvandermade/fp-reporter-kotlin
-- https://github.com/mvandermade/fp-backend-kotlin
-- https://github.com/mvandermade/fp-reporter-rs-gtk
-- https://github.com/mvandermade/fp-reporter-compose
-- https://github.com/mvandermade/fp-reporter-client
+- https://github.com/mvandermade/fup-reporter-kotlin
+- https://github.com/mvandermade/fup-backend-kotlin
+- https://github.com/mvandermade/fup-reporter-rs-gtk
+- https://github.com/mvandermade/fup-reporter-compose
+- https://github.com/mvandermade/fup-reporter-client
 
 # More repos
 - https://github.com/mverleg/postzegel-helm
