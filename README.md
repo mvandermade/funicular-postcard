@@ -31,14 +31,14 @@ Probably some parts are overkill but some challenges tackled are:
 ## Interaction diagram
 ```mermaid
 graph LR
-  customer -->|REST| fp-backend-kotlin
-  fp-reporter-kotlin -->|REST| fp-backend-kotlin
+  customer -->|REST| fup-backend-kotlin
+  fup-reporter-kotlin -->|REST| fup-backend-kotlin
   subgraph distribution-center
-  fp-reporter-client -->|Websocket| fp-reporter-kotlin
-  fp-reporter-compose -->|Websocket| fp-reporter-kotlin
-  fp-reporter-rs-gtk -->|Websocket| fp-reporter-kotlin
-  fp-reporter-swift-macos --> |Websocket| fp-reporter-kotlin
-  mail-processor --> |Code-scanner| fp-reporter-kotlin
+  fup-reporter-client -->|Websocket| fup-reporter-kotlin
+  fup-reporter-compose -->|Websocket| fup-reporter-kotlin
+  fup-reporter-rs-gtk -->|Websocket| fup-reporter-kotlin
+  fup-reporter-swift-macos --> |Websocket| fup-reporter-kotlin
+  mail-processor --> |Code-scanner| fup-reporter-kotlin
   end
   customer --> |Postage| mail-processor
 ```
@@ -48,16 +48,16 @@ Using kustomize in https://github.com/mvandermade/made-duper-kubernetes
 ```mermaid
 graph TD
   made-duper-kubernetes --> kustomize
-  kustomize --> fp-backend-kotlin
-  fp-backend-kotlin --> postgres-backend
+  kustomize --> fup-backend-kotlin
+  fup-backend-kotlin --> postgres-backend
   postgres-backend --> persistent-volume
-  kustomize --> fp-reporter-kotlin
-  fp-reporter-kotlin --> postgres-reporter
+  kustomize --> fup-reporter-kotlin
+  fup-reporter-kotlin --> postgres-reporter
   postgres-reporter --> persistent-volume
-  fp-reporter-kotlin --> kafka-reporter
+  fup-reporter-kotlin --> kafka-reporter
   kafka-reporter --> persistent-volume
-  fp-reporter-kotlin --> service
-  service --> fp-backend-kotlin
+  fup-reporter-kotlin --> service
+  service --> fup-backend-kotlin
 ```
 
 Using helm: https://github.com/mverleg/postzegel-helm (only for testing the reporter part)
