@@ -1,7 +1,5 @@
-# funicular-postzegel (fup)
-An overview of the umbrella of funicular postzegel. Or stamp in English.
-
-![colourful logo](postzegel.png "colourful logo")
+# funicular-postcard (fup)
+![colourful logo](postcard.png "colourful logo")
 
 The goal of the project is to understand how things work.
 Not a real purpose, other than I found a fascination around the "new" stamp codes you can buy at PostNL.
@@ -31,8 +29,8 @@ Probably some parts are overkill but some challenges tackled are:
 ## Interaction diagram
 ```mermaid
 graph LR
-  customer -->|REST| fup-backend-kotlin
-  fup-reporter-kotlin -->|REST| fup-backend-kotlin
+  customer -->|REST| fup-order-exchange
+  fup-reporter-kotlin -->|REST| fup-order-exchange
   subgraph distribution-center
   fup-reporter-client -->|Websocket| fup-reporter-kotlin
   fup-reporter-compose -->|Websocket| fup-reporter-kotlin
@@ -48,8 +46,8 @@ Using kustomize in https://github.com/mvandermade/made-duper-kubernetes
 ```mermaid
 graph TD
   made-duper-kubernetes --> kustomize
-  kustomize --> fup-backend-kotlin
-  fup-backend-kotlin --> postgres-backend
+  kustomize --> fup-order-exchange
+  fup-order-exchange --> postgres-backend
   postgres-backend --> persistent-volume
   kustomize --> fup-reporter-kotlin
   fup-reporter-kotlin --> postgres-reporter
@@ -57,7 +55,7 @@ graph TD
   fup-reporter-kotlin --> kafka-reporter
   kafka-reporter --> persistent-volume
   fup-reporter-kotlin --> service
-  service --> fup-backend-kotlin
+  service --> fup-order-exchange
 ```
 
 Using helm: https://github.com/mverleg/postzegel-helm (only for testing the reporter part)
@@ -70,7 +68,7 @@ graph TD
 ## Repos
 - https://github.com/mvandermade/made-duper-kubernetes
 - https://github.com/mvandermade/fup-reporter-kotlin
-- https://github.com/mvandermade/fup-backend-kotlin
+- https://github.com/mvandermade/fup-order-exchange
 - https://github.com/mvandermade/fup-reporter-rs-gtk
 - https://github.com/mvandermade/fup-reporter-compose
 - https://github.com/mvandermade/fup-reporter-client
