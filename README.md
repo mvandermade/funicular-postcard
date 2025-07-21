@@ -64,13 +64,13 @@ graph TD
 ```
 
 ## Repos
-- https://github.com/mvandermade/made-duper-kubernetes
 - https://github.com/mvandermade/fup-io-balancer
 - https://github.com/mvandermade/fup-reporter-kotlin
 - https://github.com/mvandermade/fup-order-exchange
-- https://github.com/mvandermade/fup-reporter-rs-gtk
-- https://github.com/mvandermade/fup-reporter-compose
 - https://github.com/mvandermade/fup-reporter-client
 
 # More repos
 - https://github.com/mverleg/postzegel-helm
+- https://github.com/mvandermade/made-duper-kubernetes
+- https://github.com/mvandermade/fup-reporter-rs-gtk
+- https://github.com/mvandermade/fup-reporter-compose
