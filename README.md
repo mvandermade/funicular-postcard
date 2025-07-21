@@ -33,12 +33,10 @@ graph LR
   fup-reporter-kotlin -->|REST| fup-order-exchange
   subgraph distribution-center
   fup-reporter-client -->|Websocket| fup-reporter-kotlin
-  fup-reporter-compose -->|Websocket| fup-reporter-kotlin
-  fup-reporter-rs-gtk -->|Websocket| fup-reporter-kotlin
-  fup-reporter-swift-macos --> |Websocket| fup-reporter-kotlin
-  mail-processor --> |Code-scanner| fup-reporter-kotlin
+  mail-service --> |Code-scanner| fup-io-balancer
+  fup-io-balancer--> |N| fup-reporter-kotlin
   end
-  customer --> |Postage| mail-processor
+  realCustomer --> |Postcard| mail-service
 ```
 
 ## Deployments
@@ -67,6 +65,7 @@ graph TD
 
 ## Repos
 - https://github.com/mvandermade/made-duper-kubernetes
+- https://github.com/mvandermade/fup-io-balancer
 - https://github.com/mvandermade/fup-reporter-kotlin
 - https://github.com/mvandermade/fup-order-exchange
 - https://github.com/mvandermade/fup-reporter-rs-gtk
